@@ -4,7 +4,6 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrains.kotlin.ksp)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 android {
@@ -51,19 +50,21 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    kapt {
-        correctErrorTypes = true
-    }
-    composeCompiler {
-        reportsDestination = layout.buildDirectory.dir("compose_compiler")
-        stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
-    }
+//    kapt {
+//        correctErrorTypes = true
+//    }
+//    composeCompiler {
+//        reportsDestination = layout.buildDirectory.dir("compose_compiler")
+//       stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
+//    }
 }
 
 dependencies {
 
     implementation(libs.androidxHilt)
     ksp(libs.hiltCompiler)
+
+    implementation(project(":feature:login"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -73,6 +74,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
