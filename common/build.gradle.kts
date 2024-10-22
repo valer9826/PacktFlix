@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.jetbrains.kotlin.ksp)
 }
 
 android {
@@ -33,6 +36,18 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.androidxHilt)
+    ksp(libs.hiltCompiler)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofitMoshiConverter)
+    implementation(libs.moshi)
+    implementation(libs.moshiKotlin)
+    implementation(libs.moshiKotlinCodegen)
+    implementation(libs.coroutinesAndroid)
+    implementation(libs.coroutinesCore)
+    implementation(libs.datastore)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
