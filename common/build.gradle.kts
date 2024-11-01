@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.androidxHilt)
     ksp(libs.hiltCompiler)
 
+
     implementation(libs.retrofit)
     implementation(libs.retrofitMoshiConverter)
     implementation(libs.moshi)
@@ -47,6 +48,7 @@ dependencies {
     implementation(libs.moshiKotlinCodegen)
     implementation(libs.coroutinesAndroid)
     implementation(libs.coroutinesCore)
+
     implementation(libs.datastore)
 
     implementation(libs.androidx.core.ktx)

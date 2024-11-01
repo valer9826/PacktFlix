@@ -1,8 +1,8 @@
-package com.packt.common.data.login.datasource.remote
+package com.packt.login.data.datasource.remote
 
-import com.packt.common.data.login.AuthService
-import com.packt.common.data.login.request.LoginRequest
-import com.packt.common.data.login.response.AuthTokenResponse
+import com.packt.login.data.AuthService
+import com.packt.login.data.request.LoginRequest
+import com.packt.login.domain.model.AuthToken
 import retrofit2.Response
 
 class LoginRemoteDataSource(
@@ -25,7 +25,7 @@ class LoginRemoteDataSource(
         }
     }
 
-    private fun getError(response: Response<AuthTokenResponse>): Throwable {
+    private fun getError(response: Response<AuthToken>): Throwable {
         return when (response.code()) {
             401 -> LoginException.AuthenticationException(
                 "Invalid email or password."
